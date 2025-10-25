@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6kestbfgilvr"]
+
+[ext_resource type="Texture2D" uid="uid://d3r27s60jishv" path="res://assets/JogoAviao/imagens/14bis.png" id="1_mtgg2"]
+[ext_resource type="Script" uid="uid://bhxldkw5mhssc" path="res://cenas/player.gd" id="2_4fhxt"]
+[ext_resource type="Texture2D" uid="uid://bbylv7nqexsgq" path="res://assets/JogoAviao/imagens/background.png" id="2_t4ukd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t4ukd"]
+radius = 16.0
+height = 66.0
+
+[node name="main" type="Node2D"]
+
+[node name="background" type="Node2D" parent="."]
+position = Vector2(-1, -2)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="background"]
+texture = ExtResource("2_t4ukd")
+centered = false
+
+[node name="player" type="CharacterBody2D" parent="."]
+position = Vector2(156, 373)
+script = ExtResource("2_4fhxt")
+friction = 1500.0
+metadata/_edit_group_ = true
+
+[node name="colisor" type="CollisionShape2D" parent="player"]
+shape = SubResource("CapsuleShape2D_t4ukd")
+
+[node name="image" type="Sprite2D" parent="player"]
+texture = ExtResource("1_mtgg2")
